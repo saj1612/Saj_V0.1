@@ -9,3 +9,9 @@ resource "aws_instance" "example" {
     Name = "sundayexample_EUwest2_LDN-instance0402"
   }
 }
+resource "aws_s3_bucket" "test2" {
+  bucket = "sajbucket1" # Replace with a globally unique name
+  tags = {
+    Name = "test2.0"
+ }
+}
