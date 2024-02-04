@@ -9,9 +9,9 @@ resource "aws_instance" "example" {
     Name = "sundayexample_EUwest2_LDN-instance0402"
   }
 }
-resource "aws_s3_bucket" "test2.0" {
-  bucket = "sajbucket1.0" # Replace with a globally unique name
+resource "aws_s3_bucket" "test2_0" {
+  bucket = "sajbucket1_0" # Replace with a globally unique name
   tags = {
-    Name = "test2.0"
+    Name = "test2_0"
  }
 }
