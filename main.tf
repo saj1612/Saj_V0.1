@@ -1,17 +1,21 @@
 provider "aws" {
-  region = "eu-west-2"  # Set your desired AWS region
+  region = "eu-west-2" # London region
 }
-resource "aws_instance" "example" {
-  ami           = "ami-0903ff18cc3c8e341"  # Set your desired AMI ID
-  instance_type = "t2.micro"  # Set your desired instance type
-  key_name = "sundaytestbitnamiwest2" # Replace with your EC2 key pair
-  tags = {
-    Name = "sundayexample_EUwest2_LDN-instance0402"
+resource "aws_s3_bucket" "terraform_state" {
+  bucket = "terraform-up-and-running-state-saj"
+}
+terraform {
+  backend "s3" {
+    # Replace this with your bucket name!
+    bucket         = "terraform-up-and-running-state-saj"
+    key            = "global/s3/terraform.tfstate"
+    region         = "eu-west-2"
   }
 }
-resource "aws_s3_bucket" "test2_0" {
-  bucket = "sajbucket10" # Replace with a globally unique name
+resource "aws_instance" "test5" {
+  ami           = "ami-0903ff18cc3c8e341" # Replace with the desired Amazon Linux 2 AMI for eu-west-2 (bitnami image)
+  instance_type = "t2.micro"  # Change to the desired instance type
   tags = {
-    Name = "test2_0"
- }
+    Name = "sundayexample-instance"
+}
 }
