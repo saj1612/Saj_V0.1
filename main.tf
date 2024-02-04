@@ -10,7 +10,7 @@ resource "aws_instance" "example" {
   }
 }
 resource "aws_s3_bucket" "test2_0" {
-  bucket = "sajbucket1_0" # Replace with a globally unique name
+  bucket = "sajbucket10" # Replace with a globally unique name
   tags = {
     Name = "test2_0"
  }
