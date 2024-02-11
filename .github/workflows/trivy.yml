@@ -17,5 +17,3 @@ jobs:
         scan-type: 'fs'
         scanners: 'misconfig'
         scan-ref: '.' 
-- name: Display Trivy scan results
-        trivy --format table .
