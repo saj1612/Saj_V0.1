@@ -14,7 +14,6 @@ jobs:
     - name: Run Trivy vulnerability scanner in fs mode
       uses: aquasecurity/trivy-action@master
       with:
-        format: 'table'
         scan-type: 'fs'
         scanners: 'misconfig'
         scan-ref: '.'
