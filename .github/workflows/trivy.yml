@@ -9,10 +9,6 @@ jobs:
     name: Build
     runs-on: ubuntu-20.04
     steps:
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '20'
     - name: Checkout code
       uses: actions/checkout@v3
     - name: Run Trivy vulnerability scanner in fs mode
@@ -20,7 +16,7 @@ jobs:
       with:
         scan-type: 'fs'
         scanners: 'misconfig'
-        scan-ref: '.'
-    - name: Display Trivy scan results
+        scan-ref: '.' 
+  name: Display Trivy scan results
       run: |
         trivy --format table .
