@@ -18,6 +18,9 @@ jobs:
           node-version: '16'
       - name: Checkout code
         uses: actions/checkout@v3
+      - name: Build an image from Dockerfile
+        run: |
+          docker build -t docker.io/my-organization/my-app:${{ github.sha }} .
       - name: Run Trivy vulnerability scanner in fs mode
         uses: aquasecurity/trivy-action@master
         with:
