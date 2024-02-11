@@ -2,26 +2,22 @@ name: build
 on:
   push:
     branches:
-      - main
+    - main
   pull_request:
 jobs:
   build:
     name: Build
     runs-on: ubuntu-20.04
     steps:
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '20'
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Run Trivy vulnerability scanner in fs mode
-        uses: aquasecurity/trivy-action@master
-        with:
-          scan-type: 'fs'
-          scanners: 'misconfig'
-          scan-ref: '.'
-      - name: Display Trivy scan results
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Run Trivy vulnerability scanner in fs mode
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: 'fs'
+        scanners: 'misconfig'
+        scan-ref: '.'
+    - name: Display Trivy scan results
         run: |
           trivy --format table .
       - name: Run Trivy scan on golang:1.12-alpine image
