@@ -17,7 +17,7 @@ jobs:
         scan-type: 'fs'
         scanners: 'misconfig'
         scan-ref: '.'
-image: "nginx:latest"
+image: "docker.io/anaisurlichs/cns-website:${{ github.sha }}"
     vulnerabilities:
       - id: "CVE-2021-1234"
         severity: "HIGH"
