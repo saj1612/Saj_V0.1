@@ -17,3 +17,27 @@ jobs:
         scan-type: 'fs'
         scanners: 'misconfig'
         scan-ref: '.'
+image: "nginx:latest"
+    vulnerabilities:
+      - id: "CVE-2021-1234"
+        severity: "HIGH"
+        package: "nginx"
+        installed_version: "1.21.3"
+        fixed_version: "1.21.4"
+      - id: "CVE-2021-5678"
+        severity: "CRITICAL"
+        package: "openssl"
+        installed_version: "1.1.1k"
+        fixed_version: "1.1.1l"
+  - image: "ubuntu:20.04"
+    vulnerabilities:
+      - id: "CVE-2021-4321"
+        severity: "MEDIUM"
+        package: "bash"
+        installed_version: "5.0.17"
+        fixed_version: "5.0.18"
+      - id: "CVE-2021-8765"
+        severity: "LOW"
+        package: "libc"
+        installed_version: "2.31"
+        fixed_version: "2.32"
