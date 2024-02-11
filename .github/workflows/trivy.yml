@@ -21,6 +21,3 @@ jobs:
           scan-type: 'fs'
           scanners: 'misconfig'
           scan-ref: '.'
-      - name: Run Trivy scan on golang:1.12-alpine image
-        run: |
-          trivy image -f table golang:1.12-alpine
