@@ -10,7 +10,9 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout code
-        uses: Node.js 20: actions/checkout@v3
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
       - name: Run Trivy vulnerability scanner in fs mode
         uses: aquasecurity/trivy-action@master
         with:
