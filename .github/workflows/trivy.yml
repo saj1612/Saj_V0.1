@@ -24,5 +24,3 @@ jobs:
           scan-type: 'fs'
           scanners: 'misconfig'
           scan-ref: '.'
-     $ trivy image -f table golang:1.12-alpine
-
