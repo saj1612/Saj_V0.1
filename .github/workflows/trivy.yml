@@ -15,17 +15,12 @@ jobs:
           node-version: '20'
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Install Trivy
-        run: |
-          wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
-          echo deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main | sudo tee -a /etc/apt/sources.list.d/trivy.list
-          sudo apt-get update && sudo apt-get install -y trivy
       - name: Run Trivy vulnerability scanner in fs mode
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: 'fs'
           scanners: 'misconfig'
           scan-ref: '.'
-      - name: Display Trivy scan results
+      - name: Run Trivy scan on golang:1.12-alpine image
         run: |
-          trivy --format table .
+          trivy image -f table golang:1.12-alpine
