@@ -4,7 +4,7 @@ provider "aws" {
 resource "aws_s3_bucket" "terraform_state" {
   bucket = "terraform-up-and-running-state-saj"
 }
-resource "aws_s3_bucket" "terraform_state" {
+resource "aws_s3_bucket" "terraform_state_test" {
   bucket = "terraform-up-and-running-state-sajTest"
 }
 resource "aws_instance" "test5" {
