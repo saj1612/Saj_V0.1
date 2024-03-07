@@ -24,7 +24,7 @@ jobs:
           aws-region: eu-west-2
       # Initialize Terraform
       - name: Initialize Terraform
-        run: terraform state migrate
+        run: terraform init
       # Deploy Terraform
       - name: Deploy Terraform
         run: terraform apply -auto-approve
